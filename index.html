@@ -3,23 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <title>سفارش پوستر</title>
-  <style>
-    body { font-family: sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; }
-    form { background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 320px; }
-    input, select, textarea { width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
-    button { margin-top: 15px; background-color: #1976d2; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
-    button:hover { background-color: #125ca2; }
-  </style>
+  <style> 
+/*body {
+    font-family: sans-serif;
+    background-color: #e7f5e9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+
+ form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,128,0,0.1);
+  margin: 40px auto;
+}
+
+  input, select, textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #388e3c;
+  }
+
+  .gallery {
+    margin-top: 40px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .gallery img {
+    width: 100px;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }*/
+body {
+  font-family: 'Vazirmatn', sans-serif;
+  background-color: #eafae5;
+  padding: 50px;
+  margin: 0;
+}
+  
+
+header h1 {
+  color: #2e7d32;
+  font-size: 32px;
+}
+
+
+header p {
+  color: #555;
+  font-size: 16px;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,128,0,0.1);
+  margin: 40px auto;
+   display: block;
+}
+
+input, select, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+button {
+  background-color: #43a047;
+  color: white;
+  padding: 10px;
+  border: none;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #2e7d32;
+}
+
+.gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  width: 130px;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.card p {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #2e7d32;
+}
+
+
+</style>
 </head>
 <body>
+<nav style="text-align: center; margin-bottom: 30px;">
+  <a href="#posterForm" style="
+    text-decoration: none;
+    background-color: #2e7d32;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    display: inline-block;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  ">
+    ثبت سفارش 🖌️
+  </a>
+</nav>
+
+<h3>نمونه‌کارها</h3>
+
+<div class="gallery">
+  <img src="https://i.postimg.cc/Z5kSVFHZ/image.jpg" alt="نمونه ۱">
+  <img src="https://i.postimg.cc/BngJbP50/111.jpg" alt="نمونه ۲">
+  <img src="https://i.postimg.cc/MHkCdz05/moon-copy.jpg" alt="نمونه ۳">
+</div>
+
+
   <form id="posterForm">
     <h2>فرم سفارش پوستر</h2>
     <input type="text" placeholder="نام شما" required>
-    <input type="email" placeholder="ایمیل" required>
-    <select>
-      <option value="مذهبی">مذهبی</option>
-      <option value="تبلیغاتی">تبلیغاتی</option>
-    </select>
+   <select id="type" name="type" required>
+  <option value="">نوع پوستر را انتخاب کنید</option>
+  <option value="مذهبی">مذهبی</option>
+  <option value="تبلیغاتی">تبلیغاتی</option>
+</select>
+
+
     <textarea placeholder="توضیحات تکمیلی..." rows="4"></textarea>
     <button type="submit">ارسال سفارش</button>
   </form>
