@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>سفارش پوستر</title>
+  <style>
+    body { font-family: sans-serif; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    form { background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 320px; }
+    input, select, textarea { width: 100%; margin-top: 10px; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+    button { margin-top: 15px; background-color: #1976d2; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background-color: #125ca2; }
+  </style>
+</head>
+<body>
+  <form id="posterForm">
+    <h2>فرم سفارش پوستر</h2>
+    <input type="text" placeholder="نام شما" required>
+    <input type="email" placeholder="ایمیل" required>
+    <select>
+      <option value="مذهبی">مذهبی</option>
+      <option value="تبلیغاتی">تبلیغاتی</option>
+    </select>
+    <textarea placeholder="توضیحات تکمیلی..." rows="4"></textarea>
+    <button type="submit">ارسال سفارش</button>
+  </form>
+
+  <script>
+    document.getElementById('posterForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('سفارش شما ثبت شد! (فعلاً فقط به صورت آزمایشی)');
+    });
+  </script>
+</body>
+</html>
