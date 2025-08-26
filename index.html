@@ -1,8 +1,44 @@
+
+
+
+
+<nav>
+  <ul>
+      <li><a href="a.html">گالری سه بعدی </a></li>
+    
+  </ul>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
   <title>سفارش پوستر</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style> 
 /*body {
     font-family: sans-serif;
@@ -255,7 +291,39 @@ html {
 
 
 
+@media screen and (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
 
+  .gallery {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .file-card {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav a {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
 
 </style>
 
@@ -291,6 +359,7 @@ html {
 <img src="https://i.postimg.cc/zXWDFqMP/copy2222222.jpg" alt="نمونه 4">
 <img src="https://i.postimg.cc/mDFKWg7v/copy.jpg" alt="نمونه 5">
 <img src="https://i.postimg.cc/BnT64JB1/image.jpg" alt="نمونه 6">
+
 
 </div>
 
