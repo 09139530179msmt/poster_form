@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>گالری محصولات سه‌بعدی</title>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #1a1a1a, #000);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: #e0c68c;
+      letter-spacing: 1px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 60px;
+      padding: 40px 60px;
+    }
+    model-viewer {
+      width: 100%;
+      height: 400px;
+      background-color: transparent;
+    }
+    .title {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #e0c68c;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>گالری سه‌بعدی محصولات خاص</header>
+  <div class="gallery">
+    <div>
+      <model-viewer src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" alt="فضانورد" auto-rotate camera-controls shadow-intensity="1"></model-viewer>
+      <div class="title">مجسمه فضانورد طلایی</div>
+    </div>
+    <div>
+      <model-viewer src="https://modelviewer.dev/shared-assets/models/RobotExpressive.glb" alt="ربات" auto-rotate camera-controls shadow-intensity="1"></model-viewer>
+      <div class="title">ربات هوشمند دکوری</div>
+    </div>
+    <div>
+
+       <model-viewer src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb" auto-rotate camera-controls></model-viewer>
+      <div class="title">نیل آرمسترانگ</div>
+    </div>
+    <div>
+
+
+
+</body>
+</html>
