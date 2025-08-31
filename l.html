@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>فروشگاه ساعت لوکس</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      direction: rtl;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #0077aa;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(5px);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+    }
+
+    .gallery-container {
+      position: relative;
+      height: 400px;
+      margin: 60px auto;
+      max-width: 1000px;
+      overflow: hidden;
+    }
+
+    .gallery {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transition: all 0.5s ease;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item.center {
+      z-index: 5;
+      transform: scale(1.2);
+    }
+
+    .gallery-item.left {
+      transform: translateX(-220px) scale(0.9);
+      z-index: 4;
+    }
+
+    .gallery-item.right {
+      transform: translateX(220px) scale(0.9);
+      z-index: 4;
+    }
+
+    .gallery-item.left-back {
+      transform: translateX(-440px) scale(0.7);
+      z-index: 3;
+    }
+
+    .gallery-item.right-back {
+      transform: translateX(440px) scale(0.7);
+      z-index: 3;
+    }
+
+    .gallery-controls {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .gallery-controls button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      background: #0077aa;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .gallery-controls button:hover {
+      background: #005577;
+    }
+
+    #products {
+      padding: 60px 20px;
+      background: rgba(255,255,255,0.85);
+    }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* حداکثر دو محصول در هر ردیف */
+  gap: 30px;
+  padding: 0 10px;
+}
+
+/* در موبایل یا عرض کمتر از 600px فقط یک محصول نمایش داده بشه */
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+
+  .product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* نسبت تصویر: عرض به ارتفاع */
+  object-fit: cover;
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+    .product-card button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #0077aa;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: #005577;
+    }
+
+    #contact {
+      padding: 60px 20px;
+      background: #f5f5f5;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+
+    button[type="submit"] {
+      background: #0077aa;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background: #005577;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(255,255,255,0.8);
+      font-size: 14px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+  .gallery-item {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    transition: all 0.5s ease;
+    cursor: pointer;
+  }
+
+.gallery-item img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+  .center       { transform: scale(1.2); z-index: 5; }
+  .left         { transform: translateX(-220px) scale(0.9); z-index: 4; }
+  .right        { transform: translateX(220px) scale(0.9); z-index: 4; }
+  .left-back    { transform: translateX(-440px) scale(0.7); z-index: 3; }
+  .right-back   { transform: translateX(440px) scale(0.7); z-index: 3; }
+  .hidden       { opacity: 0; pointer-events: none; transform: scale(0.5); z-index: 0; }
+   
+
+
+
+
+
+
+
+
+
+
+
+
+.product-card img {
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.product-card:hover img {
+  transform: rotateY(15deg) scale(1.05);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.product-card img {
+  animation: float 3s ease-in-out infinite;
+}
+
+
+
+
+
+
+.floating-product {
+  width: 300px;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.4));
+}
+
+.floating-product:hover {
+  transform: translateY(-20px) scale(1.05) rotateX(5deg);
+  filter: drop-shadow(0 40px 60px rgba(0,0,0,0.5));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#popup-slider {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-hidden {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.popup-overlay {
+  position: absolute;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+}
+
+.popup-content {
+  position: relative;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 10000;
+  max-width: 800px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.popup-images {
+  text-align: center;
+}
+
+#main-popup-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.popup-thumbnails {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.popup-thumbnails img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.popup-thumbnails img:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+.overlay-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.gallery-item:hover .overlay-button {
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#contact {
+  width: 100%;
+  padding: 100px 20px;
+  background: rgba(255, 255, 255, 0.85); /* شفافیت مشابه محصولات */
+  backdrop-filter: blur(6px);
+  position: relative;
+  z-index: 1;
+}
+
+.contact-wrapper {
+  max-width: 700px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 2;
+}
+
+.contact-wrapper h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input, textarea {
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: #fefefe;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 119, 170, 0.3);
+}
+
+button[type="submit"] {
+  background: #0077aa;
+  color: white;
+  border: none;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background: #005577;
+}
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
+
+
+
+
+@media (max-width: 600px) {
+  #search-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #search-form input,
+  #search-form button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  form input,
+  form textarea,
+  form button {
+    font-size: 16px;
+  }
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* منوی اصلی برای دسکتاپ */
+#main-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#main-nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+#main-nav a:hover {
+  color: #0077aa;
+}
+
+/* منوی همبرگری فقط در موبایل */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #0077aa;
+}
+
+/* حالت موبایل */
+@media (max-width: 768px) {
+  #main-nav ul {
+    flex-direction: column;
+    gap: 15px;
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    display: none;
+  }
+
+  #main-nav ul.mobile-visible {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="menu-wrapper">
+    <div class="logo">فروشگاه ساعت لوکس</div>
+    <div class="hamburger" onclick="toggleMobileMenu()">☰
+              <div class="menu-content">
+                         <span class="close-btn" onclick="toggleMenu()">×</span>
+
+
+
+
+</div>
+       
+  </div>
+
+
+  <nav id="main-nav">
+    <ul>
+
+
+
+
+<div id="search-icon" onclick="toggleSearch()" style="cursor: pointer; font-size: 20px; color: white;">
+  🔍
+</div>
+
+
+
+        <li><a href="#home">خانه</a></li>
+        <li><a href="#gallery">نمونه‌کارها</a></li>
+        <li><a href="#products">محصولات</a></li>
+        <li><a href="#contact">تماس با ما</a></li>
+     
+    
+
+
+
+<form id="search-form" onsubmit="handleSearch(event)" style="display: none; justify-content: center; margin-top: 10px;">
+  <input type="text" id="search-input" placeholder="جست‌وجوی محصول..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit;">
+  <button type="submit" style="padding: 10px 20px; background: #0077aa; color: white; border: none; border-radius: 5px;">جست‌وجو</button>
+</form>
+    </ul>
+
+
+<form id="search-form" onsubmit="handleSearch(event)" style="display: none; justify-content: center; margin-top: 10px;">
+  <input type="text" id="search-input" placeholder="جست‌وجوی محصول..." style="padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-family: inherit;">
+  <button type="submit" style="padding: 10px 20px; background: #0077aa; color: white; border: none; border-radius: 5px;">جست‌وجو</button>
+</form>
+
+
+
+
+
+</nav>
+
+  </header>
+
+  <section class="hero" id="home">
+    <h1>فروشگاه ساعت لوکس</h1>
+    <p>انتخابی خاص برای سلیقه‌های خاص</p>
+  </section>
+
+
+
+
+<section id="gallery">
+  <div class="gallery-container">
+    <div class="gallery" id="gallery">
+      <!-- فقط این‌ها رو اضافه کن، هر تعداد خواستی -->
+      <div class="gallery-item"><img src="https://i.postimg.cc/Z5kSVFHZ/image.jpg" alt="نمونه ۱"></div>
+      <div class="gallery-item"><img src="https://i.postimg.cc/BngJbP50/111.jpg" alt="نمونه ۲"></div>
+      <div class="gallery-item"><img src="https://i.postimg.cc/MHkCdz05/moon-copy.jpg" alt="نمونه ۳"></div>
+         <div class="gallery-item"><img src="https://i.postimg.cc/zXWDFqMP/copy2222222.jpg" alt="نمونه 4"></div>
+         <div class="gallery-item"><img src="https://i.postimg.cc/mDFKWg7v/copy.jpg" alt="نمونه 5"></div>
+         <div class="gallery-item"><img src="https://uploadkon.ir/uploads/a1c021_25m1.jpg" alt="نمونه 6"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/1d0421_25کبوتر-حرم-.jpg" alt="نمونه 7"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/151421_25مسجد-مهدیه2.jpg" alt="نمونه 8"></div>
+
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/539602_25-.jpg" alt="نمونه 9"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/f25c02_25پوستر-مسجد-مهدیه-با-بکگراند-شب.jpg" alt="نمونه 10"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/1f8421_25a2.jpg" alt="نمونه 11"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/51ef21_25a4.jpg" alt="نمونه 12"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/8cba07_25هههههههه.jpg" alt="نمونه 13"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/2fe307_25ه.jpg" alt="نمونه 14"></div>
+<div class="gallery-item"><img src="https://uploadkon.ir/uploads/4dce06_25copilot-image-1754404355316.jpeg" alt="نمونه 15"></div>
+
+
+      <!-- ادامه نمونه‌کارها -->
+    </div>
+  </div>
+  <div class="gallery-controls">
+    <button onclick="moveLeft()">قبلی</button>
+    <button onclick="moveRight()">بعدی</button>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+  <section id="products">
+    <h2 style="text-align:center;">محصولات ما</h2>
+    <div class="product-grid">
+      <div class="product-card">
+ <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+
+        <h3>ساعت کلاسیک</h3>
+        <p>۲٬۵۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+      <div class="product-card">
+         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+        <h3>ساعت مدرن</h3>
+        <p>۳٬۲۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+
+
+
+
+
+     <div class="product-card">
+         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+        <h3>ساعت مدرن</h3>
+        <p>۳٬۲۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+
+
+
+
+
+
+
+
+     <div class="product-card">
+         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+        <h3>ساعت مدرن</h3>
+        <p>۳٬۲۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+     <div class="product-card">
+         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+        <h3>ساعت مدرن</h3>
+        <p>۳٬۲۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <div class="product-card">
+         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30" alt="ساعت لوکس" onclick="openPopup(['https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30','https://images.unsplash.com/photo-1523275335684-37898b6baf30'])">
+        <h3>ساعت مدرن</h3>
+        <p>۳٬۲۰۰٬۰۰۰ تومان</p>
+        <button>خرید</button>
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+<section id="contact">
+  <div class="contact-wrapper">
+    <h2>ارسال پیام </h2>
+    <form>
+      <input type="text" placeholder="نام شما">
+      
+      <textarea rows="5" placeholder="پیام شما"></textarea>
+      <button type="submit">ارسال پیام</button>
+    </form>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer>
+  طراحی شده توسط حاتمی 
+  </footer>
+
+
+
+
+
+
+<script>
+const positionClasses = ['center', 'left', 'right', 'left-back', 'right-back'];
+  let items = Array.from(document.querySelectorAll('.gallery-item'));
+  let currentIndex = 0;
+
+  function updateGallery() {
+    items.forEach((item, i) => {
+      item.className = 'gallery-item';
+      const relativeIndex = (i - currentIndex + items.length) % items.length;
+
+      if (relativeIndex < positionClasses.length) {
+        item.classList.add(positionClasses[relativeIndex]);
+      } else {
+        item.classList.add('hidden');
+
+           
+
+
+      }
+    });
+  }
+
+  function moveRight() {
+    currentIndex = (currentIndex + 1) % items.length;
+    updateGallery();
+  }
+
+  function moveLeft() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    updateGallery();
+  }
+
+  updateGallery();
+
+
+
+
+
+  // ✅ کنترل اسکرول فقط داخل گالری
+  const galleryContainer = document.querySelector('.gallery-container');
+  galleryContainer.addEventListener('wheel', function(e) {
+    e.preventDefault(); // جلوگیری از اسکرول صفحه
+    if (e.deltaY > 0) {
+      moveRight();
+    } else {
+      moveLeft();
+    }
+  }, { passive: false });
+
+  updateGallery();
+
+
+
+
+
+
+
+
+
+
+
+function openPopup(images) {
+  const popup = document.getElementById('popup-slider');
+  const mainImg = document.getElementById('main-popup-img');
+  const thumbnails = document.getElementById('popup-thumbnails');
+
+  thumbnails.innerHTML = '';
+  mainImg.src = images[0];
+
+  images.forEach(src => {
+    const thumb = document.createElement('img');
+    thumb.src = src;
+    thumb.onclick = () => {
+      mainImg.src = src;
+      document.querySelector('.popup-overlay').style.background = 'rgba(0,0,0,0.7)';
+    };
+    thumbnails.appendChild(thumb);
+  });
+
+  popup.classList.remove('popup-hidden');
+}
+
+function closePopup() {
+  document.getElementById('popup-slider').classList.add('popup-hidden');
+}
+
+
+
+
+
+
+
+
+function toggleSearch() {
+  const form = document.getElementById('search-form');
+  form.style.display = form.style.display === 'none' ? 'flex' : 'none';
+}
+
+function handleSearch(e) {
+  e.preventDefault();
+
+  const query = document.getElementById('search-input').value.trim().toLowerCase();
+  const products = document.querySelectorAll('.product-card');
+
+  let found = false;
+
+  products.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const description = card.querySelector('p')?.textContent.toLowerCase() || '';
+
+    if (title.includes(query) || description.includes(query)) {
+      card.style.display = 'block';
+      if (!found) {
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        found = true;
+      }
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  if (!found) {
+    alert('محصولی با این مشخصات پیدا نشد.');
+  }
+}
+
+
+
+
+document.getElementById('search-input').addEventListener('input', function () {
+  if (this.value.trim() === '') {
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.style.display = 'block';
+    });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+function toggleMobileMenu() {
+  const navList = document.querySelector('#main-nav ul');
+  navList.classList.toggle('mobile-visible');
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<div id="popup-slider" class="popup-hidden">
+  <div class="popup-overlay" onclick="closePopup()"></div>
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <div class="popup-images">
+      <img src="" id="main-popup-img" alt="تصویر بزرگ">
+      <div class="popup-thumbnails" id="popup-thumbnails">
+        <!-- تصاویر کوچک اینجا اضافه می‌شن -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="single-image-popup" class="popup-hidden">
+  <div class="popup-overlay" onclick="closeSingleImagePopup()"></div>
+  <div class="popup-content">
+    <span class="close-btn" onclick="closeSingleImagePopup()">×</span>
+    <div class="popup-images">
+      <img src="" id="single-popup-img" alt="تصویر بزرگ‌شده">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
